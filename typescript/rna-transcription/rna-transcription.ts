@@ -10,8 +10,9 @@ class Transcriptor {
     return dnaStrand
       .split("")
       .map((dnaNucleotide) => {
+        if (!Transcriptor.DNA_TO_RNA_MAP.has(dnaNucleotide))
+          throw new Error("Invalid input DNA.");
         const rnaNucleotide = Transcriptor.DNA_TO_RNA_MAP.get(dnaNucleotide);
-        if (!rnaNucleotide) throw new Error("Invalid input DNA.");
         return rnaNucleotide;
       })
       .join("");

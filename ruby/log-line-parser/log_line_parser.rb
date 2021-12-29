@@ -4,9 +4,9 @@ class LogLineParser
   INFO_TAG = 'INFO'.freeze
 
   LOG_REGEXPS = {
-    error: /^\[#{ERROR_TAG}\]:\s/,
-    warning: /^\[#{WARNING_TAG}\]:\s/,
-    info: /^\[#{INFO_TAG}\]:\s/
+    error: /^\[#{ERROR_TAG}\]:/,
+    warning: /^\[#{WARNING_TAG}\]:/,
+    info: /^\[#{INFO_TAG}\]:/
   }.freeze
 
   def initialize(line)

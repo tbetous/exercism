@@ -3,10 +3,13 @@ class Phrase
     @phrase = phrase
   end
 
+  def splitted_words
+    @phrase.downcase.gsub(/(\w'\w|\w)+/)
+  end
+
   def word_count
-    @word_count ||= @phrase
-      .downcase
-      .gsub(/(\w'\w|\w)+/)
-      .each_with_object({}) { |word, counts| counts[word] = (counts[word].nil? ? 0 : counts[word]) + 1 }
+    @word_count ||= splitted_words.each_with_object({}) do |word, counts|
+      counts[word] = (counts[word] || 0) + 1
+    end
   end
 end

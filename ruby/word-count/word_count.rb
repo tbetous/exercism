@@ -1,9 +1,13 @@
 class Phrase
-  def initialize(phrase)
-    @words = phrase.downcase.gsub(/(\w'\w|\w)+/)
-  end
+  REGULAR_EXPRESSION = {
+    WORDS: /\b[\w']+\b/
+  }.freeze
+  RE = REGULAR_EXPRESSION
+  private_constant :REGULAR_EXPRESSION, :RE
 
-  def word_count
-    @word_count ||= @words.tally
+  attr_reader :word_count
+
+  def initialize(phrase)
+    @word_count = phrase.downcase.scan(RE[:WORDS]).tally
   end
 end

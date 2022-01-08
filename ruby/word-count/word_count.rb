@@ -1,7 +1,7 @@
 class Phrase
   REGULAR_EXPRESSION = {
     WORDS: /\b[\w']+\b/
-  }.freeze
+  }
   RE = REGULAR_EXPRESSION
   private_constant :REGULAR_EXPRESSION, :RE
 
